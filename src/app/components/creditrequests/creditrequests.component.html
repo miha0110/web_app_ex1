@@ -1,0 +1,55 @@
+<div  class="row">
+  <div  class="col-md-12">
+      
+    <div class="page-header">
+      <h1 id="my-header">Credit <small>Requests</small></h1>
+    </div>
+    <table id="my-table"  class="table table-bordered" style="border-radius: 25px 25px 0px 0px; overflow: hidden;">
+      <thead>
+        <tr>
+          <th>Current SY Credit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{sycredit}}</td>
+        </tr>
+      </tbody>
+  </table> 
+    <div id="my-table"class="table-responsive" style="border-radius: 0px 0px 25px 25px; overflow: hidden;">
+
+      <table id="main_table_bottom" class="table table-hover" style="text-align:center" >
+        <thead>
+          <tr >
+            <th class="col91" (click)="sortTable(0)">Order S/N</th>
+            <th class="col92" (click)="sortTable(1)">Date Added</th>
+            
+            <th class="col94" (click)="sortTable(2)">Date Updated</th>
+            <th class="col95" (click)="sortTable(3)">Order Status</th>
+            <th class="col96" >Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders" >
+            
+            <td class="col91" >{{order.ordersn}}</td>
+            <td class="col92">{{order.dateadded}}</td>           
+            <td class="col94">{{order.status_update_time}}</td>
+            <td class="col95">{{order.orderstatus}}</td>
+            <td *ngIf ="order.orderstatus=='waiting'" class="col96"><input type="button" value="Accept" (click)="accept(order)"></td>
+          </tr>
+        </tbody>
+      </table>
+    
+    </div>
+    <div id="my-buttons"  class="clearfix">
+      <div class="pull-right">
+        
+        
+        <input type="text" id="myInput" (input)="searchTable($event)" placeholder="Search . . .">
+        
+      </div>
+    </div>
+  </div>
+  
+</div>

@@ -1,0 +1,71 @@
+
+ <div class="card" *ngIf="role=='Admin'">
+
+<div class="page-header report-header" >
+  <h1 id="my-header">Report S/N <small>(Current Status)</small></h1>
+</div>
+
+<br>
+
+<div *ngIf="role=='Admin'">
+  <table class="table">
+    <tbody>
+      <tr>
+        <th class="top-th">Serial Number</th>
+          <td>
+            <select class="form-control" (change)="myFunc()"  [(ngModel)]="chosenSN"  name="title24"  >
+              <option [ngValue]="undefined" diabled hidden>Select a System</option>
+              <option *ngFor="let item of systems" [ngValue]="item">
+                {{item.serialNumber}}
+              </option>
+           </select>
+          </td>
+         
+      </tr>
+      
+      <tr>
+        <th class="top-th">Installation Date</th>
+          <td>
+            {{chosenSN?.datecreated | date: 'medium'}}
+          </td>
+         
+      </tr>
+      <tr>
+        <!-- <th>HandPiece S/N</th> -->
+        <th class="top-th">
+          <select id="hpSelect" class="form-control" (change)="changeHp($event.target.value)" >
+            <option diabled hidden selected>Select HandPiece S/N</option>
+              <option *ngFor="let item of systemHps" >
+                {{item.serialNumber}}
+              </option>
+          </select>
+        </th>
+        <td >{{chosenHpPulse}}</td>
+        
+      </tr>
+      <tr>
+        <th class="top-th">Total Pulses</th>
+          <td>{{totalPulses}}</td>
+         
+      </tr>
+      <!-- <tr>
+        <th>Pulses in HP</th>
+          <td>{{chosenSN?.hppulse}}  <span *ngIf="chosenSN?.hppulseright">/</span>  {{chosenSN?.hppulseright}}</td>
+        
+      </tr> -->
+      <tr>
+        <th class="top-th">Pulses Remaining(Credit)</th>
+          <td>{{chosenSN?.creditpulse}}</td>
+         
+      </tr>
+      <tr>
+        <th class="top-th">Distributor</th>
+          <td>{{chosenSN?.distributor}}</td>
+         
+      </tr>
+  </tbody>
+ 
+  </table>
+</div>
+
+</div>

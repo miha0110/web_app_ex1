@@ -1,0 +1,260 @@
+#my-table{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 0px;
+    border: 1px solid rgb(168, 170, 170);
+    margin-top: 20px;
+    width:1250px;
+    margin-left: -6%;
+    
+}
+
+
+#my-buttons{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 15px;
+    border: 0px solid rgba(168, 170, 170, 0);
+    margin-top: 20px;
+    overflow-x: hidden; 
+    width:1250px;
+    margin-left: -6%;
+}
+#my-header{
+    text-shadow: 0px 2px 10px;
+    margin-top: 30px;
+}
+.ib {
+    margin-top: 20px;
+    display: inline-table;
+    width: 10rem;
+    
+  }
+  .navbar {
+    -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 8px 6px -6px #999;
+
+    /* the rest of your styling */
+}
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+#my-page{
+    background-color: rgba(0, 0, 0, 0.007)
+}
+
+#main_table{
+    
+    table-layout: fixed;
+    border-collapse: collapse; 
+}
+
+#main_table tbody{
+    
+    /* width: 100%; */
+    display:block;
+    overflow-y: auto;
+    overflow-x: none;
+    height: 60vh;
+    
+}
+
+ #main_table thead tr {
+    display:block;
+} 
+
+#main_table_bottom{
+   
+    table-layout: fixed;
+    border-collapse: collapse; 
+    
+}
+
+#main_table_bottom tbody{
+    /* width: 100%; */
+    display:block;
+    overflow-y: auto;
+    overflow-x: none;
+    height: 42vh;
+    
+}
+
+ #main_table_bottom thead tr {
+    display:block;
+} 
+
+th{
+    cursor: pointer;
+}
+
+select{
+    cursor: pointer;
+}
+
+.col0{
+  width: 2.96%;
+  cursor: context-menu;
+}
+
+.col1{
+    width: 10%;
+
+}
+
+.col2{
+    width: 22%;
+}
+
+.col3{
+  width: 10.2%;
+  
+}
+
+.col4{
+ width:6.5%;
+}
+
+.col5{
+   width: 8%;
+  
+}
+
+.col6{
+  width: 5.8%; 
+
+}
+
+.col7{
+width:9%;
+}
+
+.col8{
+    width: 9%;
+   
+}
+
+.col9{
+    width:8.5%;
+    
+}
+
+.col10{
+    width:8.5%;
+} 
+.col11{
+    width:10%;
+    cursor: context-menu;
+}
+
+.col20{
+    width:37px;
+    cursor: context-menu;
+}
+
+.col21{
+    width: 420px;
+}
+
+.col22{
+    width: 420px;
+}
+
+.col23{
+    width: 400px;
+}
+
+.col24{
+    width: 400px;
+    cursor: context-menu;
+}
+
+.col30{
+    width: 37px;
+    cursor: context-menu;
+}
+
+.col31{
+    width: 150px;
+}
+
+.col32{
+    width: 150px;
+}
+
+.col33{
+    width: 200px;
+}
+
+.col34{
+    width: 300px;
+}
+
+.col35{
+    width:150px;
+}
+
+.col36{
+    width: 180px;
+}
+
+.col37{
+    width:100px;
+    cursor: context-menu;
+}
+
+.col40{
+    width: 37px;
+    cursor: context-menu;
+}
+
+.col41{
+    width: 150px;
+}
+
+.col42{
+    width: 350px;
+}
+
+.col43{
+    width: 150px;
+}
+
+.col44{
+    width:85px;
+}
+
+.col45{
+    width: 200px;
+}
+
+.col46{
+    width: 120px;
+}
+
+.col47{
+    width:140px;
+    cursor: context-menu;
+}
+
+#myInput{
+    width: 12%;
+    line-height: 3vh
+}
+
+.card{
+    margin-top:40px;
+    width:60%;
+    height:60%;
+    border-color:#F8F9FB;
+    border-width:5px;
+    border-radius:25px ;
+    border-style:solid;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    margin-left: auto;
+    margin-right: auto
+}
+
+.report-header{
+    text-align: center
+}

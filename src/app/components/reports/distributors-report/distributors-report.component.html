@@ -1,0 +1,35 @@
+
+<div class="card" *ngIf="role=='Admin'">
+<div class="page-header report-header" >
+  <h1 id="my-header">Report Distributors <small>(Current Status)</small></h1>
+</div>
+
+<br>
+<div *ngIf="role=='Admin'">
+  <table class="table">
+    <tbody>
+      <tr>
+        <th class="top-th">Distributor</th>
+          <td>
+              <select class="form-control" [(ngModel)]="chosenDist" name="title24" (change)="generate()">
+                  <option [ngValue]="undefined" diabled hidden>Select a Distributor</option>
+                  <option *ngFor="let item of distributors" [ngValue]="item._id"  >
+                    {{item.name}}
+                  </option>
+               </select>
+          </td>
+          
+      </tr>
+      <tr>
+        <th class="top-th"> Total Devices</th>
+          <td>
+              {{counter}}
+          </td>
+         
+  </tbody>
+ 
+  </table>
+  
+</div>
+
+</div>

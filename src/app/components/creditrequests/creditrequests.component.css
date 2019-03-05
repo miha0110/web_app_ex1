@@ -1,0 +1,60 @@
+body {
+    background-image: "http://digitalguru.co.il/cwsd.php?bXYxJzQ0JQ__/PzM_/YGx6enxgfyIxImtjdA__.jpg";
+    padding-top: 65px;
+  }
+    .login-container {
+      margin-top: 80px;
+    }
+    
+    .signup-container {
+      margin-top: 80px;
+    }
+    
+    .panel-success {
+      background-color: #3c763d;
+      padding: 10px 20px;
+      color: white;
+    }
+    
+    .panel-success > p {
+      margin: 0;
+    }
+    
+    .panel-error {
+      background-color: #a94442;
+      padding: 10px 20px;
+      color: white;
+    }
+    
+    .panel-error > p {
+      margin: 0;
+    }
+  
+.col91{
+    width: 260px;
+    text-align: center;
+}
+
+.col92{
+    width: 260px;
+    text-align: center;
+}
+
+.col94{
+    width: 250px;
+    text-align: center;
+}
+
+.col95{
+    width: 250px;
+    text-align: center;
+}
+
+.col96{
+    width: 200px;
+    text-align: center;
+}
+
+#myInput{
+  margin-left: 20px;
+}

@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <a class="navbar-brand" [routerLink]="['']"><img id="logo" style="width:100px;" src="../assets/nlogo.png"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbarLg" aria-controls="collapsingNavbarLg" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  <div class="container-fluid">
+
+    <div class="navbar-collapse collapse" id="collapsingNavbarLg">
+      <ul class="navbar-nav  mr-auto">
+        <li class="nav-item"> <a  class="nav-link" routerLink="/systems">Systems</a></li>
+        <li class="nav-item" *ngIf="role=='Admin'"><a  class="nav-link" routerLink="/distributors">Distributors</a></li>
+        <li class="nav-item" *ngIf="role=='Admin'"><a  class="nav-link" routerLink="/reports">Reports</a></li>
+        <li class="nav-item" *ngIf="role=='Admin'"><a  class="nav-link" routerLink="/files">Firmwares</a></li>
+        <li class="nav-item" *ngIf="distname=='Renaisse' || role=='Admin'"><a  class="nav-link" routerLink="/creditrequests">Credit Requests</a></li>
+        <li class="nav-item" *ngIf="role=='Admin'"><a  class="nav-link" routerLink="/users">Cloud Users</a></li>
+        <li class="nav-item" *ngIf="role=='Admin'" ><a  class="nav-link" routerLink="/novUsers">clientApp Users</a></li>
+        <li class="nav-item" *ngIf="role=='Admin'" style="display:none"><a  class="nav-link" routerLink="/log">Log</a></li>
+      </ul>
+      <ul class="nav navbar-nav ml-auto">
+
+            <li class="nav-item" ><a  class="nav-link" routerLink="/profile">{{userName}}</a></li>
+            <li role="separator" class="divider"></li>
+            <li class="nav-item" style="margin-right: 20px"><a  class="nav-link" routerLink="/logout">Logout</a></li>
+            <li class="nav-item" ><div>FE {{feVersion}}</div><div>BE {{beVersion}}</div></li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<div class="container">
+  <router-outlet></router-outlet>
+
+</div>
+

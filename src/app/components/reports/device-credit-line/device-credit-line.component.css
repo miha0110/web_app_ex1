@@ -1,0 +1,16 @@
+td{
+    width: 45%;
+}
+
+#period{
+    width: 300px;
+}
+
+#button{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.top-th{
+    cursor: context-menu;
+}

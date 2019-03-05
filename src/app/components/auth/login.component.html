@@ -1,0 +1,55 @@
+<div id="outPopUp" class="container login-container">
+  <div class="row">
+    <div class="col-lg-6 col-centered">
+    <img src="../../assets/nlogo.png" alt="clientApp" style="width:100%">
+
+      <div class="panel panel-default">
+        <div class="panel-error" >{{error}}</div>
+        <div class="panel-heading">
+          <h3 class="panel-title">Login</h3>
+        </div>
+        <div class="panel-body">
+          <form (submit)="login()">
+
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input [(ngModel)]="username" name="username" type="text" placeholder="Username" class="form-control"/>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input [(ngModel)]="password" name="password" type="password" placeholder="Password" class="form-control"/>
+            </div>
+            <button type="submit" class="btn btn-primary">LOGIN</button>
+          </form>
+
+        </div>
+
+
+
+        <div class="panel-footer">
+            <div class="panel panel-default">
+                <div class="panel-error" >{{error}}</div>
+                <div class="panel-heading">
+                  <h3 class="panel-title">Verification</h3>
+                </div>
+                <div class="panel-body">
+                  <form (submit)="verify()">
+                    <div class="form-group">
+                      <label for="vcode">Code</label>
+                      <input [(ngModel)]="vcode" name="vcode" type="text" placeholder="Verification code" class="form-control"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary">VERIFY</button>
+                  </form>
+                </div>
+                <div class="panel-footer" style="margin-top: 50px">
+
+                        <span>
+                            FE {{version}}
+                        </span>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

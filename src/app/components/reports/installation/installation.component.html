@@ -1,0 +1,37 @@
+
+<div class="card" *ngIf="role=='Admin'">
+
+<div class="page-header report-header" >
+  <h1 id="my-header">Report Installation Dates </h1>
+</div>
+
+<br>
+<!-- NEEDS TO BE REPETITIVE => scroll+search -->
+<div *ngIf="role=='Admin'">
+  <table class="table">
+    <tbody>
+      <tr>
+        <th class="top-th">Serial Number</th>
+          <td>
+              <select class="form-control" [(ngModel)]="chosenSN" name="title24"  >
+                  <option [ngValue]="undefined" diabled hidden>Select a System</option>
+                  <option *ngFor="let item of systems" [ngValue]="item"  >
+                    {{item.serialNumber}}
+                  </option>
+               </select>
+          </td>
+        
+      </tr>
+      <tr>
+        <th class="top-th">Installaion Date</th>
+          <td>{{chosenSN?.datecreated | date: 'medium'}}</td>
+        
+      </tr>
+  </tbody>
+ 
+  </table>
+  <br>
+  <br>
+</div>
+
+</div>

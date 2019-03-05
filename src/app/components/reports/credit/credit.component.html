@@ -1,0 +1,56 @@
+<div class="card" *ngIf="role=='Admin'">
+
+<div class="page-header report-header"  >
+  <h1 id="my-header">Report Credit Usage</h1>
+</div>
+
+<br>
+
+<div *ngIf="role=='Admin'">
+  <table class="table">
+    <tbody>
+      <tr>
+        <th class="top-th">Distributor</th>
+          <td>
+            <select class="form-control" id="sel" (change)="enableButton()" [(ngModel)]="chosenDist" name="title24">
+                <option [ngValue]="undefined" disabled="true" hidden>Please choose...</option>
+              <option *ngFor="let item of distributors" [ngValue]="item._id">
+                {{item.name}}
+              </option>
+           </select>
+           </td>
+          
+      </tr>
+      <tr>
+        <th class="top-th">Current Credit(Pulses) of Distributor</th>
+          <td>{{totalPulses}}</td>
+         
+      </tr>
+      <tr>
+          <th class="top-th">Purchase/Usage 30 days</th>
+          <td>{{purchased1}}/{{usage1}}</td>
+      </tr>
+      <tr>
+          <th class="top-th">Purchase/Usage 31-60 days</th>
+          <td>{{purchased2}}/{{usage2}}</td>
+      </tr>
+      <tr>
+          <th class="top-th">Purchase/Usage 61-90 days</th>
+          <td>{{purchased3}}/{{usage3}}</td>
+      </tr>
+      <tr>
+          <th class="top-th">Purchase/Usage 91-180 days</th>
+          <td>{{purchased4}}/{{usage4}}</td>
+      </tr>
+      <tr>
+          <th class="top-th">Purchase/Usage 181-365 days</th>
+          <td>{{purchased5}}/{{usage5}}</td>
+      </tr>
+  </tbody>
+ 
+  </table>
+
+  <button class="btn btn-primary" id="button" disabled="true" (click)="generate();this.disableButton();disableSelect()">Generate</button>
+</div>
+
+</div>

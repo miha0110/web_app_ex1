@@ -1,0 +1,29 @@
+td{
+    width: 45%;
+}
+
+#choose{
+    width: 200px;
+    margin-right: 10px;
+}
+
+th{
+    display: flex;
+}
+
+span{
+    margin-top: 5px;
+}
+
+#hp{
+    margin-left: 18px;
+}
+
+h6{
+    margin-top: 50px;
+    color: red
+}
+
+.top-th{
+    cursor: context-menu;
+}

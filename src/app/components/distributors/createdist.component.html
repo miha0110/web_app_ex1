@@ -1,0 +1,30 @@
+<div id = "my-header" class="row" *ngIf="role=='Admin'">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">New Distributor</h3>
+      </div>
+      <div class="panel-body">
+        <form (submit)="save()">
+          <div class="form-group">
+            <label for="title">Name</label>
+            <input [(ngModel)]="distributor.name" type="text" class="form-control" name="title" placeholder="enter name">
+            <label for="title">Last name</label>
+            <input [(ngModel)]="distributor.lastname" type="text" class="form-control" name="title" placeholder="enter last name">
+            <label for="title">Phone number</label>
+            <input [(ngModel)]="distributor.phone" type="text" class="form-control" name="title" placeholder="enter phone number">
+            <label for="title">E-Mail</label>
+            <input [(ngModel)]="distributor.email" type="text" class="form-control" name="title" placeholder="enter e-mail address">
+            <label for="title">Active</label>
+            <select  class="form-control"  name="singleSelect" [(ngModel)]="distributor.isactive">
+              <option [ngValue]="undefined" diabled hidden>choose</option>
+              <option value="True" >True</option>
+              <option value="False"  >False</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Add New</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

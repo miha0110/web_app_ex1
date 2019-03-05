@@ -1,0 +1,42 @@
+<div id = "my-header"  class="row" *ngIf="role=='Admin' || role=='Operator'">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Add new system</h3>
+      </div>
+      <div class="panel-body">
+
+        <form (submit)="save()">
+          <div class="form-group">
+            <label for="title">clientApp S/N</label>
+            <input [(ngModel)]="system.serialNumber" type="text"  class="form-control" name="title" placeholder="Enter clientApp S/N" >
+            <label for="title">Hardware S/N</label>
+            <input [(ngModel)]="system.isdnum" type="text" class="form-control" name="title2" placeholder="Enter Hardware S/N" >
+
+            <label for="title">Distributor</label>
+            <select class="form-control" name="title4"  [(ngModel)]="system.distid" >
+                <option [ngValue]="undefined" diabled hidden>choose</option>
+              <option *ngFor="let item of distributors" [value]="item._id">
+                {{item.name}}
+              </option>
+           </select>
+            <label for="title5" >Active</label>
+            <select  class="form-control"  name="singleSelect" [(ngModel)]="system.isactive" >
+                <option [ngValue]="undefined" diabled hidden>choose</option>
+              <option value="True">True</option>
+              <option value="False">False</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Add New</button>
+
+          <input type="button" class="btn btn-primary" value="Import from file" onclick="document.getElementById('fileInput').click();"/>
+          <input id="fileInput" type='file' accept='text/plain' (change)='readSingleFile($event)' style="display:none;">
+
+          <input type="button" class="btn btn-primary" value="Import from CSV" onclick="document.getElementById('fileInputCSV').click();"/>
+          <input id="fileInputCSV" type='file' accept='CSV' (change)='readCSVFile($event)' style="display:none;">
+          <img id='output'>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

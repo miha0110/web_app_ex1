@@ -1,0 +1,13 @@
+
+td{
+    width: 10%;
+}
+
+#button{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.top-th{
+    cursor: context-menu;
+}

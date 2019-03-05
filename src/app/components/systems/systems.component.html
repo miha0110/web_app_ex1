@@ -1,0 +1,57 @@
+<div  class="row" *ngIf="role == 'Admin' || role=='Operator' || role == 'Distributor'">
+    <div  class="col-md-12">
+
+      <div class="page-header">
+        <h1 id="my-header">Systems <small>table</small></h1>
+      </div>
+
+      <div id="my-table" class="table-responsive" style="border-radius: 25px 25px 25px 25px; overflow: hidden;" >
+
+        <table id="main_table" class="table table-hover " style="text-align:center" >
+          <thead>
+            <tr >
+              <th class="col0" ></th>
+              <th class="col1" (click)="sortTable(1)">clientApp S/N</th>
+              <th class="col2" (click)="sortTable(2)">Hardware S/N</th>
+
+              <th class="col4" (click)="sortTable(3)">Credit Pulse</th>
+              <th class="col5" (click)="sortTable(4)">HP Pulse</th>
+              <th class="col6" (click)="sortTable(5)">Active</th>
+              <th class="col7" (click)="sortTable(6)">Distributor</th>
+              <th class="col8" (click)="sortTable(7)">FW Version</th>
+              <th class="col9" (click)="sortTable(8)">Activation date</th>
+              <th class="col10" (click)="sortTable(9)">Last update</th>
+              <th class="col11"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let system of systems" >
+
+              <td class="col0"><input type="checkbox" [checked]="system.selected" (change)="system.selected = !system.selected"/></td>
+              <td class="col1">{{system?.serialNumber}}</td>
+              <td class="col2">{{system?.isdnum}}</td>
+
+              <td class="col4">{{system?.creditpulse}}</td>
+              <td class="col5"><div>{{system?.hppulse}}<span *ngIf="system?.hppulseright">/</span></div><div>{{system?.hppulseright}}</div></td>
+              <td class="col6">{{system?.isactive}}</td>
+              <td class="col7">{{system?.distributor}}</td>
+              <td class="col8">{{system?.fwv}}</td>
+              <td class="col9">{{system?.datecreated| date:'dd/MM/yyyy'}}</td>
+              <td class="col10">{{system?.lastupdate | date:'dd/MM/yyyy'}}</td>
+              <td class="col11"><input type="button" value="View" (click)="viewInfo(system)"></td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+      <div id="my-buttons" class="clearfix">
+        <div class="pull-right">
+          <button type="button" *ngIf="role == 'Admin' || role == 'Operator'" class="btn btn-success" (click)="create()">Add New</button>
+          <button type="button" *ngIf="role == 'Admin'" class="btn btn-success" (click)="createExcel()">Export to excel</button>
+
+          <input style="margin-left:20px" type="text" id="myInput" (input)="searchTable($event)" placeholder="Search . . .">
+
+        </div>
+      </div>
+    </div>
+  </div>

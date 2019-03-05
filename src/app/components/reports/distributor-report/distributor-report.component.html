@@ -1,0 +1,66 @@
+
+<div class="card" *ngIf="role=='Admin'">
+
+<div class="page-header report-header" >
+  <h1 id="my-header">Report Distributor <small>(Current Status)</small></h1>
+</div>
+
+<br>
+
+<div *ngIf="role=='Admin'">
+  <table class="table">
+    <tbody>
+      <tr>
+        <th class="top-th">Distributor</th>
+          <td>
+              <select class="form-control" [(ngModel)]="chosenDist" name="title24"  >
+                  <option [ngValue]="undefined" diabled hidden>Select a Distributor</option>
+                  <option *ngFor="let item of distributors" [ngValue]="item" >
+                    {{item.name}}
+                  </option>
+               </select>
+              
+          </td>
+        
+      </tr>
+      <tr style="display: none;">
+        <th class="top-th">Country</th>
+          <td>
+            <!-- {{chosenDist.country}} -->
+          </td>
+         
+      </tr>
+      <tr>
+        <th class="top-th">Email</th>
+          <td >
+            {{chosenDist?.email}}
+          </td>
+          
+      </tr>
+      <tr style="display: none;">
+        <th class="top-th">Address</th>
+          <td>
+              <!-- {{chosenDist.address}} -->
+          </td>
+        
+      </tr>
+      <tr>
+        <th class="top-th">Tel</th>
+          <td>
+              {{chosenDist?.phone}}
+          </td>
+        
+      </tr>
+      <tr>
+        <th class="top-th">Contact Person</th>
+          <td>
+              {{chosenDist?.lastname}}
+          </td>
+          
+      </tr>
+  </tbody>
+ 
+  </table>
+</div>
+
+</div>

@@ -1,0 +1,37 @@
+<!-- <div id = "my-header"  class="row" *ngIf="role=='Admin'">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Edit cloud user</h3>
+      </div>
+      <div class="panel-body">
+        
+        <form (submit)="save()">
+          <div class="form-group">
+            <label for="title">User name</label>
+            <input [(ngModel)]="currUser.username" type="text" class="form-control" name="title2" placeholder="Enter User name" >
+            <label for="title">Email</label>
+            <input [(ngModel)]="currUser.email" type="text" class="form-control" name="title3" placeholder="Enter Email">
+            <label for="title">Permission</label>
+            <select class="form-control" (change)="changeRole($event.target.value)">
+              <option [selected]="currUser.Role === 'undefined'">Choose role...</option>
+              <option *ngFor="let item of roles" [selected]="currUser.Role === item.role">
+                {{item.role}}
+              </option>
+           </select>
+           <label *ngIf="currRoleId === 'dbc93da1-d95e-4e35-88c3-932ae4748c9f'">Distributor name</label>
+           <select *ngIf="currRoleId === 'dbc93da1-d95e-4e35-88c3-932ae4748c9f'" class="form-control" (change)="changeDist($event.target.value)">
+              <option [selected]="currUser.DistributorName === 'undefined' || currUser.DistributorName === '' || currUser.DistributorName === null" disabled>Choose a distributor...</option>
+            <option *ngFor="let item of distributors" [selected]="currUser.DistributorName === item.name">
+              {{item.name}}
+            </option>
+         </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Save</button>
+          
+          <img id='output'>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->

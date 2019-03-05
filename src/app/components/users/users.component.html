@@ -1,0 +1,40 @@
+<div class="row"  *ngIf="role=='Admin'">
+    <div  class="col-md-12">
+      <div class="page-header">
+        <h1 id="my-header">Cloud Users <small>table</small></h1>
+      </div>
+      <div id="my-table" class="table-responsive"  style="border-radius: 25px 25px 25px 25px; overflow: hidden;">
+        <table id="main_table" class="table table-hover" style="text-align:center">
+          <thead>
+            <tr>
+              <th class="col91"></th>            
+              <th class="col92" (click)="sortTable(1)">User name</th>
+              <th class="col93" (click)="sortTable(2)">E-mail</th>
+              <th class="col94" (click)="sortTable(3)">Permission</th>
+              <th class="col95"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td class="col91"><input type="checkbox" [checked]="user.selected" (change)="user.selected = !user.selected"/></td>
+              <td class="col92">{{user.username}}</td>
+              <td class="col93">{{user.email}}</td>
+              <td class="col94">{{user.Role}}</td>
+              <td class="col95"><input type="button" value="Edit" (click)="editUser(user)"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="my-buttons" class="clearfix">
+        <div class="pull-right">
+          <!-- <button type="button" class="btn btn-success" (click)="StandardUser()">User</button>
+          <button type="button" class="btn btn-danger" (click)="Distributor()">Distributor</button>
+          <button type="button" class="btn btn-default" (click)="pull()">Refresh</button> -->
+          <button type="button" class="btn btn-success" (click)="create()">Add new user</button>
+          <input type="text" id="myInput" (input)="searchTable($event)" placeholder="Search . . .">
+          
+        </div>
+      </div>
+    </div>
+
+ 

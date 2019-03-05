@@ -1,0 +1,44 @@
+<div id = "my-header"  class="row" *ngIf="role=='Admin'">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Add new cloud user</h3>
+      </div>
+      <div class="panel-body">
+        
+        <form (submit)="save()">
+          <div class="form-group">
+            <label for="title">User name</label>
+            <input [(ngModel)]="username" type="text"  class="form-control" name="title" placeholder="Enter User name" >
+
+            <label for="title">Password</label>
+            <input [(ngModel)]="password" type="password5" class="form-control" name="title5" placeholder="Enter Password" >
+
+            <label for="title">Email</label>
+            <input [(ngModel)]="email" type="text" class="form-control" name="title2" placeholder="Enter Email" >
+
+            <label for="title">Permission</label>
+            <select class="form-control" (change)="changeRole($event.target.value)">
+              <option [selected]="true" disabled>Choose role...</option>
+              <option *ngFor="let item of roles">
+                  {{item.role}}
+              </option>
+           </select>
+
+           <label *ngIf="currRoleId === 'dbc93da1-d95e-4e35-88c3-932ae4748c9f'">Distributor name</label>
+           <select *ngIf="currRoleId === 'dbc93da1-d95e-4e35-88c3-932ae4748c9f'" class="form-control" (change)="changeDist($event.target.value)">
+              <option [selected]="true" disabled>Choose a distributor...</option>
+              <option *ngFor="let item of distributors">
+              {{item.name}}
+            </option>
+         </select>
+
+          </div>
+          <button type="submit" class="btn btn-primary">Add New</button>
+          
+          <img id='output'>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

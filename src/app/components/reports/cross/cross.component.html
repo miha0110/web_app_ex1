@@ -1,0 +1,56 @@
+<div class="card" *ngIf="role=='Admin'">
+<div class="page-header report-header" >
+  <h1 id="my-header">Report Cross Reference BU vs HP</h1>
+</div>
+
+<br>
+
+<div *ngIf="role=='Admin'">
+  <table class="table">
+    <tbody>
+     
+      <tr>
+        <th class="top-th">
+          <select class="form-control" id="choose" [(ngModel)]="chosenSN" (change)="generate();"  name="title24"  >
+          <option [ngValue]="undefined" diabled hidden>Select a System</option>
+          <option *ngFor="let item of systems" [ngValue]="item"  >
+            {{item.serialNumber}}
+          </option>
+       </select>
+      </th>
+       <td> pulses 1d ago/7d ago</td>
+          <td>{{usage1}}/{{usage7}}</td>
+          
+      </tr>
+      <tr *ngIf = "handleCounter > 0">
+        <th class="top-th" id = "hp">{{pairedHps[0]}}</th>
+        <td>HP SN pulses 1d ago/7d ago</td>
+          <td>{{HPusage1}}/{{HPusage7}}</td>
+       
+      </tr>
+      <tr *ngIf = "handleCounter > 1">
+        <th class="top-th" id = "hp">{{pairedHps[1]}}</th>
+        <td>HP SN pulses 1d ago/7d ago</td>
+          <td>{{SecondHPusage1}}/{{SecondHPusage7}}</td>
+       
+      </tr>
+
+      <tr>
+        <th class="top-th">Distributor</th>
+          <td>{{chosenSN?.distributor}}</td>
+      
+      </tr>
+      
+      
+  </tbody>
+ 
+  </table>
+
+
+  
+  <div *ngIf="showAlert">
+    <h6>** System pulses and hand piece pulses delta varies by more then 1% **</h6>
+  </div>
+</div>
+
+</div>

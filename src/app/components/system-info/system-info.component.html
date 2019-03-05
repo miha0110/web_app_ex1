@@ -1,0 +1,90 @@
+<div class="col-md-12" *ngIf="role == 'Admin' || role=='Operator' || role == 'Distributor'">
+<div class="page-header" >
+  <h1 id="my-header">System
+    <small>info</small>
+  </h1>
+</div>
+
+<table id="my-table"  class="table table-bordered" style="border-radius: 25px 25px 0px 0px; overflow: hidden;">
+    <thead>
+      <tr>
+        <th class="top-th">Serial Number</th>
+        <th class="top-th">M.Code</th>
+        <th class="top-th">Credit Pulse</th>
+        <th class="top-th">HP Pulse</th>
+        <th class="top-th">Active</th>
+        <th class="top-th">Distributor</th>
+        <th class="top-th">FW Version</th>
+        <th class="top-th">Activation Date</th>
+        <th class="top-th">Last Update</th>
+        <th class="top-th">Hardware S/N</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{sys.serialNumber}}</td>
+        <td>{{sys.manCode}}</td>
+        <td>{{sys.creditpulse}}</td>
+        <td><div>{{sys.hppulse}}<span *ngIf="sys?.hppulseright">/</span></div><div>{{sys?.hppulseright}}</div></td>
+        <td>{{sys.isactive}}</td>
+        <td>{{sys.distributor}}</td>
+        <td>{{sys.fwv}}</td>
+        <td>{{sys?.datecreated| date:'dd/MM/yyyy'}}</td>
+        <td>{{sys?.lastupdate| date:'dd/MM/yyyy'}}</td>
+        <td>{{sys.isdnum}}</td>
+      </tr>
+    </tbody>
+</table>
+
+<div >
+  <div class="page-header">
+    <h1 id="my-header">Codes
+      <small>table</small>
+    </h1>
+  </div>
+  <div id="my-table"  class="table-responsive" style="border-radius: 0px 0px 25px 25px; overflow: hidden;">
+    <table id="main_table_bottom" style="text-align: center" class="table table-hover " >
+      <thead>
+        <tr>
+          <th class="col20"></th>
+          <th class="col21" (click)="sortTable(1)">Code</th>
+          <th class="col22" (click)="sortTable(2)">Type</th>
+          <th class="col22" (click)="sortTable(3)">Date</th>
+          <th class="col23" style="display: none;">Sent</th>
+          <th class="col24" style="display: none;"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let code of codes">
+          <td class="col20">
+            <input type="checkbox" [checked]="code.selected" (change)="code.selected = !code.selected" />
+          </td>
+          <td class="col21">{{code.Code}}</td>
+          <td class="col22">{{code.CodeType}}</td>
+          <td class="col22">{{code._kmd.lmt| date:'dd/MM/yyyy HH:mm:ss'}}</td>
+          <td class="col23" style="display: none;">{{code.sent}}</td>
+          <td class="col24" style="display: none;"><button type="button" class="btn btn-success" (click)="sendCode(code.Code)">Send</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="my-buttons" *ngIf="role == 'Admin' || role=='Operator'" class="clearfix">
+    <div class="pull-right">
+      <button type="button" class="col-xs-10 btn btn-success" (click)="generateNewManProd()">m.code</button>
+      <button type="button" class="col-xs-10 btn btn-success" (click)="generateNewCodeProd()">100 (production) code</button>
+      
+      <button type="button" *ngIf="role == 'Admin'" class="col-xs-10 btn btn-success" (click)="generateNewCodeCust()">100 (customer)code</button>
+      <button type="button" *ngIf="role == 'Admin'" class="col-xs-10 btn btn-success" (click)="generateNewCode1k()">1k code</button>
+      <button type="button" *ngIf="role == 'Admin'" class="col-xs-10 btn btn-success" (click)="generateNewCode5k()">5k code</button>
+      <button type="button" *ngIf="role == 'Admin'" class="col-xs-10 btn btn-success" (click)="generateNewCode10()">10k code</button>
+      <button type="button" *ngIf="role == 'Admin'" class="col-xs-10 btn btn-success" (click)="generateNewCode100()">100k code</button>
+      <button type="button" class="col-xs-10 btn btn-success" (click)="editSystem(sys)">Edit</button>
+      <input type="text" id="myInput" class="col-xs-10" (input)="searchTable($event)" placeholder="Search . . .">
+      <button type="button" *ngIf="role == 'Admin'" class="col-xs-10 btn btn-success" (click)="codeReport(sys)">Code Report</button>
+      <button type="button" class="col-xs-10 btn btn-default" (click)="pull()">Refresh</button>
+    </div>
+  </div>
+
+</div>
+</div>
+

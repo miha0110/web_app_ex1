@@ -1,0 +1,59 @@
+
+<div class="card" *ngIf="role=='Admin'">
+
+<div class="page-header report-header" >
+    <h1 id="my-header">Report Device Productivity</h1>
+  </div>
+  
+  <br>
+ 
+  <div *ngIf="role=='Admin'">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th class="top-th">Date from</th>
+            <td>
+                <div>
+                    <input type="date"   min={{initialDate}} max={{yesterday}}  [(ngModel)]="d1" >
+                </div>
+            </td>
+           
+        </tr>
+        <tr>
+          <th class="top-th">Date to</th>
+            <td><input type="date"    min={{initialDate}} max={{yesterday}} [(ngModel)]="d2"></td>
+          
+        </tr>
+        <tr>
+          <th class="top-th">S/N</th>
+            <td>
+              <select class="form-control" id="sel" [(ngModel)]="chosenSN" name="title24"  >
+                  <option [ngValue]="undefined" diabled hidden>Select a System</option>
+                <option *ngFor="let item of systems " [ngValue]="item"  >
+                  {{item.serialNumber}}
+                </option>
+             </select>
+            </td>
+           
+        </tr>
+        <tr>
+          <th class="top-th">Distributor</th>
+            <td>
+              {{chosenSN?.distributor}}
+            </td>
+           
+        </tr>
+        
+        <tr>
+          <th class="top-th">Total Pulses for peroid</th>
+            <td>{{totalPulses}}</td>
+        
+        </tr>
+    </tbody>
+   
+    </table>
+  
+    <button class="btn btn-primary" id="button" (click)="generate();this.disableButton();disableSelect()">Generate</button> 
+  </div>
+
+</div>

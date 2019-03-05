@@ -1,0 +1,44 @@
+
+<div class="row" *ngIf="role=='Admin'">
+    <div  class="col-md-12">
+      <div class="page-header">
+        <h1 id="my-header">Distributors <small>table</small></h1>
+      </div>
+      
+      <div id="my-table" class="table-responsive" style="border-radius: 25px 25px 25px 25px; overflow: hidden;">
+        <table id="main_table" class="table table-hover" style="text-align:center">
+          <thead>
+            <tr>
+              <th class="col30"></th>
+              <th (click)="sortTable(1)" class="col31">Name</th>
+              <th (click)="sortTable(2)" class="col32">Last Name</th>
+              <th (click)="sortTable(3)" class="col33">Phone</th>
+              <th (click)="sortTable(4)" class="col34">E-mail</th>
+              <th (click)="sortTable(5)" class="col35">Active</th>
+              <th (click)="sortTable(6)" class="col36">Date</th>
+              <th class="col37">Info</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let distributor of distributors">
+              <td class="col30"><input type="checkbox" [checked]="distributor.selected" (change)="distributor.selected = !distributor.selected"/></td>
+              <td class="col31">{{distributor.name}}</td>
+              <td class="col32">{{distributor.lastname}}</td>
+              <td class="col33">{{distributor.phone}}</td>
+              <td class="col34">{{distributor.email}}</td>
+              <td class="col35">{{distributor.isactive}}</td>
+              <td class="col36">{{distributor.datecreated| date:'dd/MM/yyyy'}}</td>
+              <td class="col37"><input type="button" value="View" (click)="viewInfo(distributor)"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="my-buttons" class="clearfix">
+        <div class="pull-right">
+          <button type="button" class="btn btn-success" (click)="create()">Add New</button>
+          
+          <input type="text" id="myInput" (input)="searchTable($event)" placeholder="Search . . .">
+        </div>
+      </div>
+    </div>
+  </div>

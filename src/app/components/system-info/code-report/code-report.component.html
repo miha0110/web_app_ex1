@@ -1,0 +1,22 @@
+<div id = "my-header"  class="row" *ngIf="role=='Admin' || role=='Operator'">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Edit system</h3>
+      </div>
+      <div class="panel-body">
+        
+        <!-- <form> -->
+          <div class="form-group">
+            <label for="title">Date from</label>
+              <input type="date" [(ngModel)]="dateFrom" >
+            
+            <label for="title" style="margin-left:5%">Date to</label>
+             <input type="date" [(ngModel)]="dateTo" >
+          </div>
+          <button class="btn btn-primary" id="button" (click)="generateReport()">Generate Code Report</button>
+        <!-- </form> -->
+      </div>
+    </div>
+  </div>
+</div>

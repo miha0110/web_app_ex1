@@ -1,0 +1,73 @@
+<div class="col-md-12" *ngIf="role=='Admin'">
+<div  class="page-header">
+  <h1 id = "my-header">Distributor
+    <small>info</small>
+  </h1>
+</div>
+
+<table id="my-table"  class="table table-bordered" style="border-radius: 25px 25px 0px 0px; overflow: hidden;">
+    <thead>
+      <tr> 
+        <th class="top-th">Name</th>
+        <th class="top-th">Last Name</th>
+        <th class="top-th">Phone</th>
+        <th class="top-th">E-Mail</th>
+        <th class="top-th">Active</th>
+        <th class="top-th">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{distr.name}}</td>
+        <td>{{distr.lastname}}</td>
+        <td>{{distr.phone}}</td>
+        <td>{{distr.email}}</td>
+        <td>{{distr.isactive}}</td>
+        <td>{{distr.datecreated| date:'dd/MM/yyyy'}}</td>
+      </tr>
+    </tbody>
+</table>
+
+<div >
+  <div class="page-header">
+    <h1 id="my-header">Systems
+      <small>table</small>
+    </h1>
+  </div>
+  <div id="my-table"  class="table-responsive" style="border-radius: 0px 0px 25px 25px; overflow: hidden;"  >
+    <table id="main_table_bottom" style="text-align: center" class="table table-hover" >
+      <thead>
+        <tr>
+          <th class="col40"></th>
+          <th class="col41" (click)="sortTable(1)">Part Number</th>
+          <th class="col42" (click)="sortTable(2)">Serial Number</th>
+          <th class="col43" (click)="sortTable(3)">Credit Pulse</th>
+          <th class="col44" (click)="sortTable(4)">Active</th>
+          <th class="col45">Distributor</th>
+          <th class="col46" (click)="sortTable(6)">Date</th>
+          <th class="col47" >Info</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let system of systems">
+          <td class="col40"><input type="checkbox" [checked]="system.selected" (change)="system.selected = !system.selected"/></td>
+          <td class="col41">{{system.serialNumber}}</td>
+          <td class="col42">{{system.isdnum}}</td>
+          <td class="col43">{{system.creditpulse}}</td>
+          <td class="col44">{{system.isactive}}</td>
+          <td class="col45">{{system.distributor}}</td>
+          <td class="col46">{{system.datecreated| date:'dd/MM/yyyy'}}</td>
+          <td class="col47"><input type="button" value="View" (click)="viewInfo(system)"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="my-buttons" class="clearfix">
+    <div class="pull-right">
+      
+      <input type="text" id="myInput" (input)="searchTable($event)" placeholder="Search . . .">
+    </div>
+  </div>
+
+</div>
+</div>
